@@ -173,7 +173,7 @@
 
         // console.log(data);
         if (data) {
-
+          $("#currentItem").hide();
           for (var i = 0; i < data.length; i++) {
             if (data[i].customerName.toLowerCase() == searchedRoom) {
 
@@ -182,7 +182,7 @@
                 var roomList = $("#roomList");
 
                 // Then display the fields in the HTML (Section Name, Date, URL)
-                var listItem = $("<li class='list-group-item mt-4'>");
+                var listItem = $("<li class='list-group-item mt-4' id='currentItem'>");
 
                 listItem.append(
                   $("<h2>").text("Table #" + (i + 1)),
