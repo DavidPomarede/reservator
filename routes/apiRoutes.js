@@ -52,6 +52,29 @@ module.exports = function(app) {
   // ---------------------------------------------------------------------------
   // I added this below code so you could clear out the table while working with the functionality.
   // Don"t worry about it!
+// Displays a single character, or returns false
+app.get("/api/tables/:name", function(req, res) {
+  var chosen = req.params.name;
+
+  // console.log(chosen);
+
+  for (var i = 0; i < tableData.length; i++) {
+    // console.log(tableData[i].customerName.toLowerCase());
+    console.log(res.json(tableData));
+    if (chosen === tableData[i].customerName) {
+      // console.log(res.json(tableData[i].customerName));
+      // console.log(res.json(tableData[i].customerName))
+      return res.json(tableData[i]);
+    // } else {
+    //   // console.log("done")
+    }
+  }
+
+  return res.json(false);
+});
+
+//******************************* */
+
 
   app.post("/api/clear", function(req, res) {
     // Empty out the arrays of data
