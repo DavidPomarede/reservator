@@ -10,13 +10,35 @@ var tableArray = [
     customerName: "Ahmed",
     customerEmail: "ahmed@example.com",
     customerID: "afhaque89",
-    phoneNumber: "000-000-0000"
+    phoneNumber: "000-000-0000",
+    roomSize: "100",
+    roomType: "conference",
+    startDate: "01/10/2019",
+    endDate: "01/11/2019",
+    address1: "1234 Main Ave",
+    address2: "Apt. 304",
+    city: "New York",
+    state: "NY",
+    zip: "12345",
+    country: "United States"
+
+
   },
   {
     customerName: "david",
     customerEmail: "david@example.com",
     customerID: "afhaque89",
-    phoneNumber: "000-000-0000"
+    phoneNumber: "000-000-0000",
+    roomSize: "100",
+    roomType: "conference",
+    startDate: "01/10/2019",
+    endDate: "01/11/2019",
+    address1: "1234 Main Ave",
+    address2: "Apt. 304",
+    city: "New York",
+    state: "NY",
+    zip: "12345",
+    country: "United States"
   }
 ];
 
