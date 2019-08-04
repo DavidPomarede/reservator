@@ -4,8 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Reservation Page</title>
-
-  <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -19,14 +17,14 @@
 
     <div class="jumbotron">
       <h1 class="text-center">
-        <span class="fa fa-fire"></span> Hot Restaurant</h1>
+        <span class="fa fa-fire"></span> Conference Room Search</h1>
       <hr>
       <h2 class="text-center">Make your reservation</h2>
       <br>
       <div class="text-center">
-        <a href="/tables">
+        <a href="/rooms">
           <button class="btn btn-lg btn-primary">
-            <span class="fa fa-list-alt"></span> View Tables</button>
+            <span class="fa fa-list-alt"></span> View rooms</button>
         </a>
         <a href="/">
           <button class="btn btn-lg btn-default">
@@ -40,7 +38,7 @@
         <!-- Reservation Page -->
         <div class="card">
           <div class="card-header">
-            Table Reservation
+           Room Reservation
           </div>
           <div class="card-body">
             <form role="form">
@@ -112,8 +110,7 @@
     <footer class="footer">
       <div class="container">
         <p>
-          <a href="/api/tables">API Table Link</a> |
-          <a href="/api/waitlist">API Wait List</a>
+          <a href="/api/rooms">API room Link</a> 
       </div>
     </footer>
 
@@ -127,10 +124,11 @@
 <script type="text/javascript">
   // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
   // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
-  // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
-  // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+  // Our api recognizes the route (/api/rooms)... and then runs the associated code (found in api-routes.js).
+  // In this case the associated code "saves" the data to the room-data.js file or waitinglist-data.js file
 
   $(".submit").on("click", function(event) {
+  
     event.preventDefault();
 
     // Here we grab the form elements
@@ -149,15 +147,6 @@
       state: $("#state-unique-id").val().trim(),
       zip: $("#zip-unique-id").val().trim(),
       country: $("#country-unique-id").val().trim()
-
-
-
-
-
-
-
-
-
     };
 
     console.log(newReservation);
@@ -165,17 +154,17 @@
     // This line is the magic. It"s very similar to the standard ajax function we used.
     // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
     // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-    // depending on if a tables is available or not.
+    // depending on if a rooms is available or not.
 
-    $.post("/api/tables", newReservation,
+    $.post("/api/rooms", newReservation,
       function(data) {
 
-        // If a table is available... tell user they are booked.
+        // If a room is available... tell user they are booked.
         if (data) {
           alert("Yay! You are officially booked!");
         }
 
-        // If a table is available... tell user they on the waiting list.
+        // If a room is available... tell user they on the waiting list.
         else {
           alert("Sorry you are on the wait list");
         }

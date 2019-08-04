@@ -1,11 +1,11 @@
 // ===============================================================================
 // DATA
-// Below data will hold all of the reserved tables.
+// Below data will hold all of the reserved rooms.
 // Initially we just set it equal to a "dummy" customer.
 // But you could have it be an empty array as well.
 // ===============================================================================
 
-var tableArray = [
+var roomArray = [
   {
     customerName: "Ahmed",
     customerEmail: "ahmed@example.com",
@@ -43,4 +43,4 @@ var tableArray = [
 ];
 
 // Note how we export the array. This makes it accessible to other files using require.
-module.exports = tableArray;
+module.exports = roomArray;
