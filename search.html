@@ -58,7 +58,7 @@
 		
 
               </div>
-
+		<div id="errorMsg"></div>
               </form>
 
           </div>
@@ -72,16 +72,20 @@
     $("#search-btn").on("click", function(event) {
       event.preventDefault();
       console.log("Clicked");
-      var newSearch = {
-        capacity: $("#capacity").val().trim(),
-        roomType: $("#roomType").val().trim(),
-        region: $("#region").val().trim()
-      };
+      var newSearch = "/" + $("#capacity").val().trim();
+      newSearch += "/" + $("#roomType").val().trim();
+      newSearch += "/" + $("#region").val().trim();
+
       console.log("Searched for: " + newSearch);
-      $.get("/api/rooms", newSearch)
-        .then(function(data) {
-          console.log(data);
-        });
+      $.get("/api/rooms"+ newSearch, function(data) {
+        if (data) {
+	console.log(data);
+        }
+        else {
+          $("#errorMsg").text("No rooms with these specifications were found. Please try again.");
+        }
+      });
+
     });
   </script>
 
