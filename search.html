@@ -78,7 +78,7 @@
         region: $("#region").val().trim()
       };
       console.log("Searched for: " + newSearch);
-      $.post("/api/rooms", newSearch)
+      $.get("/api/rooms", newSearch)
         .then(function(data) {
           console.log(data);
         });
