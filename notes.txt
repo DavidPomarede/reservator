@@ -1,0 +1,7 @@
+make sure to install the node and npm packages
+
+>> npm init
+
+>> npm install express
+
+
